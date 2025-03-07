@@ -40,12 +40,11 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun Kegiatan() {
     val artworks = listOf(
-        Artwork("Kegiatan1", "Mengerjakan tugas ", "", R.drawable.kegiatan1),
-        Artwork("Kegiatan2", "Mengikuti milad TIF 2024", "", R.drawable.kegiatan2),
-        Artwork("Kegiatan3", "Makan bersama", "", R.drawable.kegiatan3),
-        Artwork("Kegiatan4", "Mengikuti kelas online", "", R.drawable.kegiatan4),
-        Artwork("Kegiatan5", "shalat jum'at", "", R.drawable.kegiatan5)
-
+        Artwork("Kegiatan 1", "Mengerjakan tugas ", "", R.drawable.kegiatan1),
+        Artwork("Kegiatan 2", "Mengikuti milad TIF 2024", "", R.drawable.kegiatan2),
+        Artwork("Kegiatan 3", "Makan bersama", "", R.drawable.kegiatan3),
+        Artwork("Kegiatan 4", "Mengikuti kelas online", "", R.drawable.kegiatan4),
+        Artwork("Kegiatan 5", "Shalat Jum'at", "", R.drawable.kegiatan5)
     )
 
     var currentIndex by remember { mutableStateOf(0) }
@@ -69,6 +68,13 @@ fun Kegiatan() {
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
+            Text(
+                text = artworks[currentIndex].title,
+                fontSize = 30.sp,
+                textAlign = TextAlign.Center,
+                modifier = Modifier.padding(16.dp)
+            )
+
             Image(
                 painter = painterResource(id = artworks[currentIndex].imageRes),
                 contentDescription = "Artwork",
@@ -89,21 +95,15 @@ fun Kegiatan() {
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     Text(
-                        text = artworks[currentIndex].title,
-                        fontSize = 24.sp,
-                        textAlign = TextAlign.Center
-                    )
-                    Text(
-                        text = "${artworks[currentIndex].author}",
+                        text = artworks[currentIndex].author,
                         fontSize = 18.sp,
                         textAlign = TextAlign.Center
                     )
                     Text(
-                        text = "${artworks[currentIndex].year}",
+                        text = artworks[currentIndex].year,
                         fontSize = 18.sp,
                         textAlign = TextAlign.Center
                     )
-
                 }
             }
         }
@@ -124,4 +124,3 @@ fun Kegiatan() {
         }
     }
 }
-
